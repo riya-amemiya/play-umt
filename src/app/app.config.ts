@@ -1,15 +1,16 @@
 import {
   type ApplicationConfig,
-  provideZoneChangeDetection, isDevMode,
+  provideZoneChangeDetection,
+  isDevMode,
 } from "@angular/core";
+import { provideClientHydration } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
+import { provideEffects } from "@ngrx/effects";
+import { provideRouterStore } from "@ngrx/router-store";
+import { provideStore } from "@ngrx/store";
+import { provideStoreDevtools } from "@ngrx/store-devtools";
 
 import { routes } from "./app.routes";
-import { provideClientHydration } from "@angular/platform-browser";
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { provideRouterStore } from '@ngrx/router-store';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideEffects(),
     provideRouterStore(),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
-],
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
 };
