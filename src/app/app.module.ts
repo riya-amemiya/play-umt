@@ -6,12 +6,7 @@ import { ConfirmationService } from "primeng/api";
 
 import { AppComponent } from "./app.component";
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppComponent,
-    NgPipesModule,
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, AppComponent],
   providers: [ConfirmationService],
 })
 export class AppModule {}
