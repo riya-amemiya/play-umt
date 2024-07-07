@@ -37,6 +37,7 @@
     "rxjs": "~7.8.0",
     "ts-pattern": "^5.2.0",
     "tslib": "^2.3.0",
+    "umt-common": "^1.8.2",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
