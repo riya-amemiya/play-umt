@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ConfirmationService } from "primeng/api";
 
 import { AppComponent } from "./app.component";
-import { HomeModule } from './routes/home/home.module';
+import { HomeModule } from "./routes/home/home.module";
 @NgModule({
   imports: [BrowserModule, BrowserAnimationsModule, AppComponent, HomeModule],
   providers: [ConfirmationService],
