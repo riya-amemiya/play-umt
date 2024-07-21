@@ -1,7 +1,7 @@
 import {
   type ApplicationConfig,
-  provideZoneChangeDetection,
   isDevMode,
+  provideExperimentalZonelessChangeDetection,
 } from "@angular/core";
 import { provideClientHydration } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
@@ -14,12 +14,12 @@ import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
     provideStore(),
     provideEffects(),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideExperimentalZonelessChangeDetection(),
   ],
 };
