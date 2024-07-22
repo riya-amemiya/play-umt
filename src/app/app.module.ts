@@ -9,6 +9,7 @@ import { ConfirmationService } from "primeng/api";
 import { AppComponent } from "./app.component";
 import { AboutModule } from "./routes/about/about.module";
 import { HomeModule } from "./routes/home/home.module";
+import { RandomModule } from './routes/random/random.module';
 @NgModule({
   imports: [
     BrowserModule,
@@ -16,6 +17,7 @@ import { HomeModule } from "./routes/home/home.module";
     AppComponent,
     HomeModule,
     AboutModule,
+    RandomModule,
   ],
   providers: [
     ConfirmationService,
