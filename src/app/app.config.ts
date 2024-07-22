@@ -1,8 +1,4 @@
-import {
-  type ApplicationConfig,
-  isDevMode,
-  provideExperimentalZonelessChangeDetection,
-} from "@angular/core";
+import { type ApplicationConfig, isDevMode } from "@angular/core";
 import { provideClientHydration } from "@angular/platform-browser";
 import { provideRouter } from "@angular/router";
 import { provideEffects } from "@ngrx/effects";
@@ -20,6 +16,5 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideExperimentalZonelessChangeDetection(),
   ],
 };
