@@ -39,8 +39,11 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "@angular-eslint/use-lifecycle-interface": "error",
+      "@angular-eslint/use-component-view-encapsulation": "error",
       "@angular-eslint/prefer-standalone-component": "error",
       "@angular-eslint/prefer-on-push-component-change-detection": "warn",
+      "@typescript-eslint/explicit-member-accessibility": "error",
       "import/order": [
         "error",
         {
@@ -67,6 +70,8 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {},
+    rules: {
+      "@angular-eslint/template/prefer-ngsrc": "error",
+    },
   },
 );
