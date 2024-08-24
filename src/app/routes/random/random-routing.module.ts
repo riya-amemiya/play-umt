@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, type Routes } from "@angular/router";
 
-import { RandomComponent } from "./random.component";
+import { RandomHomeComponent } from "./home/random-home.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: RandomComponent,
+    component: RandomHomeComponent,
   },
 ];
 

@@ -6,10 +6,10 @@ import { random } from "umt-common/module/Math/random";
   selector: "app-random",
   standalone: true,
   imports: [],
-  templateUrl: "./random.component.html",
-  styleUrl: "./random.component.scss",
+  templateUrl: "./random-home.component.html",
+  styleUrl: "./random-home.component.scss",
 })
-export class RandomComponent implements OnInit {
+export class RandomHomeComponent implements OnInit {
   public randomNumber = random(100);
   ngOnInit() {
     console.log("RandomComponent initialized!");
