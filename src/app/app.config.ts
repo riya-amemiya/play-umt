@@ -21,11 +21,13 @@ import { provideEffects } from "@ngrx/effects";
 import { provideRouterStore } from "@ngrx/router-store";
 import { provideStore } from "@ngrx/store";
 import { provideStoreDevtools } from "@ngrx/store-devtools";
+import { ConfirmationService } from "primeng/api";
 
 import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    ConfirmationService,
     provideRouter(routes),
     provideClientHydration(),
     provideStore(),
