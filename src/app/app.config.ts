@@ -21,7 +21,6 @@ import { provideEffects } from "@ngrx/effects";
 import { provideRouterStore } from "@ngrx/router-store";
 import { provideStore } from "@ngrx/store";
 import { provideStoreDevtools } from "@ngrx/store-devtools";
-import { environment } from "src/environments/environment";
 
 import { routes } from "./app.routes";
 
@@ -35,13 +34,13 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideFirebaseApp(() =>
       initializeApp({
-        projectId: environment.projectId,
-        appId: environment.appId,
-        storageBucket: environment.storageBucket,
-        apiKey: environment.apiKey,
-        authDomain: environment.authDomain,
-        messagingSenderId: environment.messagingSenderId,
-        measurementId: environment.measurementId,
+        projectId: import.meta.env.FIREBASE_PROJECT_ID,
+        appId: import.meta.env.FIREBASE_APP_ID,
+        storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+        apiKey: import.meta.env.FIREBASE_API_KEY,
+        authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
+        messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
+        measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
       }),
     ),
     provideAuth(() => getAuth()),
