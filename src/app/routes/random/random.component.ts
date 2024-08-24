@@ -1,7 +1,8 @@
-import { Component, type OnInit } from "@angular/core";
+import { Component, type OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { random } from "umt-common/module/Math/random";
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-random",
   standalone: true,
   imports: [],
