@@ -1,17 +1,17 @@
 import { type ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AboutComponent } from "./about.component";
+import { RandomHomeComponent } from "./random-home.component";
 
-describe("AboutComponent", () => {
-  let component: AboutComponent;
-  let fixture: ComponentFixture<AboutComponent>;
+describe("RandomComponent", () => {
+  let component: RandomHomeComponent;
+  let fixture: ComponentFixture<RandomHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutComponent],
+      imports: [RandomHomeComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AboutComponent);
+    fixture = TestBed.createComponent(RandomHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

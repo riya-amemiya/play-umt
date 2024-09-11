@@ -1,13 +1,13 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { ButtonModule } from "primeng/button";
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, ButtonModule],
+  imports: [RouterOutlet],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  title = "play-umt";
+  public title = "play-umt";
 }

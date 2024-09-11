@@ -6,4 +6,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import("./routes/home/home.module").then((m) => m.HomeModule),
   },
+  {
+    path: "random",
+    loadChildren: () =>
+      import("./routes/random/random.module").then((m) => m.RandomModule),
+  },
 ];
