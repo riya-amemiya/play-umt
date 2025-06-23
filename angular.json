@@ -2,11 +2,14 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "bun"
+    "packageManager": "bun",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
-    "play-umt2": {
+    "play-umt": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -66,10 +69,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "play-umt2:build:production"
+              "buildTarget": "play-umt:build:production"
             },
             "development": {
-              "buildTarget": "play-umt2:build:development"
+              "buildTarget": "play-umt:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,6 +93,15 @@
             ],
             "styles": [
               "src/styles.scss"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         }
