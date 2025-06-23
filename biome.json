@@ -1,14 +1,15 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.4/schema.json",
   "files": {
-    "ignore": [
-      "node_modules",
-      "module",
-      "*.json",
-      "doc",
-      "coverage",
-      ".angular",
-      "dist"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/module",
+      "!**/*.json",
+      "!**/doc",
+      "!**/coverage",
+      "!**/.angular",
+      "!**/dist"
     ]
   },
   "formatter": {
@@ -37,10 +38,7 @@
   },
   "linter": {
     "enabled": true,
-    "ignore": [
-      "tests",
-      ".dependency-cruiser.js"
-    ],
+    "includes": ["**", "!**/tests", "!**/.dependency-cruiser.js"],
     "rules": {
       "a11y": {
         "noSvgWithoutTitle": "warn"
@@ -55,19 +53,15 @@
         "noUndeclaredVariables": "warn",
         "noUnusedVariables": "warn",
         "useExhaustiveDependencies": "warn",
-        "useHookAtTopLevel": "error"
+        "useHookAtTopLevel": "error",
+        "noSwitchDeclarations": "error"
       },
       "nursery": {
-        "noDoneCallback": "error",
-        "noDuplicateElseIf": "error",
-        "noDuplicateJsonKeys": "error",
-        "noEvolvingTypes": "error",
-        "noMisplacedAssertion": "error"
+        "noDuplicateJsonKeys": "error"
       },
       "recommended": true,
       "style": {
         "noImplicitBoolean": "warn",
-        "noNamespaceImport": "error",
         "noNegationElse": "error",
         "noParameterAssign": "off",
         "noParameterProperties": "off",
@@ -77,21 +71,42 @@
         "useNamingConvention": {
           "level": "off",
           "options": {
-            "enumMemberCase": "CONSTANT_CASE",
+            "conventions": [
+              {
+                "selector": { "kind": "enumMember" },
+                "formats": ["CONSTANT_CASE"]
+              }
+            ],
             "strictCase": true
           }
         },
-        "useShorthandArrayType": "error",
         "useShorthandAssign": "error",
-        "useSingleCaseStatement": "error"
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "noDoneCallback": "error",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": { "syntax": "shorthand" }
+        }
       },
       "suspicious": {
         "noEmptyBlockStatements": "error",
-        "noSkippedTests": "error"
+        "noSkippedTests": "error",
+        "noDuplicateElseIf": "error",
+        "noEvolvingTypes": "error",
+        "noMisplacedAssertion": "error"
+      },
+      "performance": {
+        "noNamespaceImport": "error"
       }
     }
   },
-  "organizeImports": {
-    "enabled": false
-  }
+  "assist": { "actions": { "source": { "organizeImports": "off" } } }
 }
