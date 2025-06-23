@@ -2,8 +2,10 @@ const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
 const importPlugin = require("eslint-plugin-import");
+const unicornPlugin = require("eslint-plugin-unicorn");
 
 module.exports = tseslint.config(
+  unicornPlugin.default.configs.recommended,
   {
     files: ["**/*.ts"],
     extends: [
@@ -33,6 +35,7 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "unicorn/import-style": "off",
       "import/order": [
         "error",
         {

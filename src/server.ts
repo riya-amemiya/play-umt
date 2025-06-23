@@ -8,7 +8,7 @@ import {
 } from "@angular/ssr/node";
 import express from "express";
 
-const browserDistFolder = join(import.meta.dirname, "../browser");
+const browserDistributionFolder = join(import.meta.dirname, "../browser");
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
@@ -29,7 +29,7 @@ const angularApp = new AngularNodeAppEngine();
  * Serve static files from /browser
  */
 app.use(
-  express.static(browserDistFolder, {
+  express.static(browserDistributionFolder, {
     maxAge: "1y",
     index: false,
     redirect: false,
@@ -39,11 +39,11 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use((req, res, next) => {
+app.use((request, response, next) => {
   angularApp
-    .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
+    .handle(request)
+    .then((response_) =>
+      response_ ? writeResponseToNodeResponse(response_, response) : next(),
     )
     .catch(next);
 });
@@ -67,4 +67,5 @@ if (isMainModule(import.meta.url)) {
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
+// eslint-disable-next-line unicorn/prevent-abbreviations
 export const reqHandler = createNodeRequestHandler(app);
