@@ -8,8 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:play-umt": "node dist/play-umt/server/server.mjs",
-    "lint": "ng lint --fix && biome check . --write",
-    "lint:nofix": "ng lint && biome check ."
+    "format": "prettier './src/**/*.{html,scss}' --config './.prettierrc' --check",
+    "lint": "bun run format --write && ng lint --fix && biome check . --write",
+    "lint:nofix": "bun run format && ng lint && biome check ."
   },
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.6.0",
     "typescript": "~5.8.2",
     "typescript-eslint": "8.34.1"
   }
