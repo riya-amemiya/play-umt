@@ -1,7 +1,7 @@
-// @ts-check
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const importPlugin = require("eslint-plugin-import");
 
 module.exports = tseslint.config(
   {
@@ -13,6 +13,9 @@ module.exports = tseslint.config(
       ...angular.configs.tsRecommended,
     ],
     processor: angular.processInlineTemplates,
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       "@angular-eslint/directive-selector": [
         "error",
@@ -28,6 +31,23 @@ module.exports = tseslint.config(
           type: "element",
           prefix: "app",
           style: "kebab-case",
+        },
+      ],
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          alphabetize: {
+            order: "asc",
+          },
+          "newlines-between": "always",
         },
       ],
     },
