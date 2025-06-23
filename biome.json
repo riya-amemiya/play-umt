@@ -1,15 +1,22 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.0.4/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
   "files": {
     "includes": [
       "**",
-      "!**/node_modules",
-      "!**/module",
+      "!**/node_modules/*",
+      "!**/module/*",
       "!**/*.json",
-      "!**/doc",
-      "!**/coverage",
-      "!**/.angular",
-      "!**/dist"
+      "!**/doc/*",
+      "!**/coverage/*",
+      "!**/.angular/*",
+      "!**/dist/*"
     ]
   },
   "formatter": {
@@ -33,12 +40,12 @@
   },
   "json": {
     "formatter": {
-      "enabled": false
+      "enabled": true
     }
   },
   "linter": {
     "enabled": true,
-    "includes": ["**", "!**/tests", "!**/.dependency-cruiser.js"],
+    "includes": ["**", "!**/tests/*", "!**/.dependency-cruiser.js"],
     "rules": {
       "a11y": {
         "noSvgWithoutTitle": "warn"
@@ -50,63 +57,64 @@
       },
       "correctness": {
         "noConstantMathMinMaxClamp": "error",
+        "noSwitchDeclarations": "error",
         "noUndeclaredVariables": "warn",
         "noUnusedVariables": "warn",
         "useExhaustiveDependencies": "warn",
-        "useHookAtTopLevel": "error",
-        "noSwitchDeclarations": "error"
+        "useHookAtTopLevel": "error"
       },
-      "nursery": {
-        "noDuplicateJsonKeys": "error"
+      "nursery": {},
+      "performance": {
+        "noNamespaceImport": "error"
       },
       "recommended": true,
       "style": {
+        "noDoneCallback": "error",
         "noImplicitBoolean": "warn",
+        "noInferrableTypes": "error",
         "noNegationElse": "error",
         "noParameterAssign": "off",
         "noParameterProperties": "off",
         "noShoutyConstants": "warn",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useAsConstAssertion": "error",
         "useBlockStatements": "error",
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
         "useFragmentSyntax": "error",
         "useNamingConvention": {
           "level": "off",
           "options": {
             "conventions": [
               {
-                "selector": { "kind": "enumMember" },
-                "formats": ["CONSTANT_CASE"]
+                "formats": ["CONSTANT_CASE"],
+                "selector": {
+                  "kind": "enumMember"
+                }
               }
             ],
             "strictCase": true
           }
         },
-        "useShorthandAssign": "error",
-        "useAsConstAssertion": "error",
-        "useDefaultParameterLast": "error",
-        "useEnumInitializers": "error",
-        "useSelfClosingElements": "error",
-        "useSingleVarDeclarator": "error",
-        "noUnusedTemplateLiteral": "error",
         "useNumberNamespace": "error",
-        "noInferrableTypes": "error",
-        "noUselessElse": "error",
-        "noDoneCallback": "error",
-        "useConsistentArrayType": {
-          "level": "error",
-          "options": { "syntax": "shorthand" }
-        }
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSingleVarDeclarator": "error"
       },
       "suspicious": {
-        "noEmptyBlockStatements": "error",
-        "noSkippedTests": "error",
         "noDuplicateElseIf": "error",
+        "noEmptyBlockStatements": "error",
         "noEvolvingTypes": "error",
-        "noMisplacedAssertion": "error"
-      },
-      "performance": {
-        "noNamespaceImport": "error"
+        "noMisplacedAssertion": "error",
+        "noSkippedTests": "error"
       }
     }
-  },
-  "assist": { "actions": { "source": { "organizeImports": "off" } } }
+  }
 }
