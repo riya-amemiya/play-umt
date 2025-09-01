@@ -11,7 +11,6 @@ import { random } from "umt/module/Math/random";
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-random",
-  standalone: true,
   imports: [ButtonModule, AsyncPipe],
   templateUrl: "./random-home.component.html",
   styleUrl: "./random-home.component.scss",

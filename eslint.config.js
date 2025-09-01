@@ -9,6 +9,9 @@ const compat = new FlatCompat();
 
 module.exports = tseslint.config(
   {
+    ignores: ["node_modules"],
+  },
+  {
     files: ["**/*.ts"],
     extends: [
       eslint.configs.recommended,
@@ -41,7 +44,6 @@ module.exports = tseslint.config(
       ],
       "@angular-eslint/use-lifecycle-interface": "error",
       "@angular-eslint/use-component-view-encapsulation": "error",
-      "@angular-eslint/prefer-standalone-component": "error",
       "@angular-eslint/prefer-on-push-component-change-detection": "warn",
       "@typescript-eslint/explicit-member-accessibility": "error",
       "import/order": [
